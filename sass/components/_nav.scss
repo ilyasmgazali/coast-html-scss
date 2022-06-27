@@ -1,0 +1,162 @@
+.nav{
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-rows: (2, min-content);
+
+    background-color: white;//for now
+    
+    &__lblock{
+        grid-row:1/2;
+        grid-column: 1/2;
+
+        display: flex;
+        align-items:center;
+        padding:15rem;
+        padding-left: 20rem;
+        li{
+            img{width: 125rem;}
+        }
+    }
+    &__hamburger{
+        grid-row:1/2;
+        grid-column:3/4;
+        display: flex;
+        align-items: center;
+        padding: 20rem;
+        li{img{width: 40rem; }}
+        .image2{display: none};
+        @include respond-to(small){
+            display: none;;
+        }
+    }
+    &__toggle:checked ~ &__dropl{
+        display:block;
+    }
+    &__toggle:checked ~ &__hamburger {
+        .image2{display:block; margin-top: -4px;}
+        .image1{display:none;}
+    }
+    &__dropl{
+        display:none;
+        
+        grid-column: 1/-1; //same as1/4
+        grid-row: 2/3;
+        
+        padding: 10rem; //to change
+        padding-top: 40rem;
+        font-size: 25rem;
+        //display: none;
+        
+        .left-stuff{display: flex;}
+        
+        a{  
+            padding: 20px;
+            display: flex;
+            justify-content:space-between;
+            align-items: center; //center FAQ etc
+            
+            img{width: 60px; padding-right: 5px;}
+            //li{ justify-items: center;}
+            //li{margin-left: 10px; margin-top: 12px;}
+        }
+        //a>img{max-width: 1px;
+        
+        &__howitworks{
+            //background-color: rgb(165, 165, 165);//for now
+            a:first-child{padding-bottom:0px;padding-left: 20px;font-size: 20rem;}
+            //a:nth-child(2){padding-top:0px;}
+            //a{ img{width: 0; }
+            .left-stuff{
+                display: flex;
+                align-items: center;
+                //background-color: blue;
+            }
+            
+        }
+        &__othermenu{
+            border-top: 0.2px solid rgb(141, 141, 141);
+            a{border-bottom: 0.2px solid rgb(141, 141, 141);}
+        }
+        @include respond-to(small){
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 80%;
+            margin-top: -100px;
+            margin-left: 160px;
+            
+            &__howitworks{
+                font-size: medium;
+                a{display: none;}
+                a{display: none;}
+                a:first-child{display: block;}
+                //a:first-child:hover ~ a{
+                //    display: block;
+                //}
+            }
+            &__othermenu{
+                display: flex;
+                align-items: flex-start;
+                margin-left: -100px;
+                position: fixed;
+                margin-left: 136px;
+                margin-top: 4px;
+                //position: absolute;
+                font-size: medium;
+                img{display: none;}
+                //border-bottom: none;
+                border: 0;
+                a{border:0;}
+            }
+            &__rightmost{
+                //grid-row:1/2;
+                //grid-column:4/-1;
+                display: flex;
+                position:absolute; top:0; right:0; 
+                margin-top: 0px;
+                font-size: medium;
+                a{padding-top: 22px;}
+                a:last-child{padding: 10px;background-color: var(--alpha); color: white; width: 80%;height: 80%;margin: 12px;}
+                img{size:100px};
+            }
+        }
+        &__navfooter{
+            padding: 20px 20px 0px 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            flex-wrap: wrap; //for space
+            gap: 50px; //for space
+
+            &__navbuttons{
+                // display: flex;
+                // //align-items: center;
+                // flex-direction: column;
+                // flex-wrap: wrap; //for gap
+                // gap: 5px; //gap
+    
+                display: grid;
+                //grid-template-columns: 1fr;
+                //grid-template-rows: span span;
+                grid-gap: 10px;
+                width: 100%;
+    
+                .button1{border: 1.2px solid rgb(161, 161, 161);border-radius: 2px;padding: 8px 0px 8px 0px;}
+                .button2{background-color: var(--alpha);  color: white; border-radius: 5px;padding: 8px 0px 8px 0px;}
+                padding-top: 30px;
+                padding-bottom: 60px;
+            }
+
+            &__terms{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+            span {font-size: 15rem;}
+
+            @include respond-to(small){
+                display:none;
+            }
+        }
+    }
+}

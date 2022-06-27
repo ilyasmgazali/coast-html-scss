@@ -1,0 +1,45 @@
+.banner1{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+    grid-gap: 30px;
+
+    margin: auto;
+    max-width: 1280px;
+
+    padding: 20px;
+    h2{font-size: 3em; font-weight: bold;}
+    //p{font-size: 1.2em;}
+    &__text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        //text-align: center;
+    }
+    &__images{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        img{max-width: 100%;}
+    }
+    @include respond-to(small){
+        padding: 20px;
+        &__images{
+            img{max-width: 400px;}
+        }
+    }
+    @include respond-to(small){
+        &__images{
+            justify-content: space-evenly;
+    
+            img{max-width: 400px;}
+        }
+        &__text{
+            align-items: flex-start;
+            max-width: 70%;
+            //text-align: center;
+        }
+    }
+}
